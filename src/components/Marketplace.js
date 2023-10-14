@@ -13,7 +13,7 @@ const sampleData = [
         "image":"https://gateway.pinata.cloud/ipfs/QmaS4bBsTeDxfQQMpfgy2QghAMsSqeH6ba8cQvZiA3Lgox",
         "price":"0.03ETH",
         "currentlySelling":"True",
-        "address":"",
+        "address":"0xf5C2232A42B89Ff64cCE52BB6f5A0a2beB3F73f0",
     },
     {
         "name": "NFT#2",
@@ -22,7 +22,7 @@ const sampleData = [
         "image":"https://gateway.pinata.cloud/ipfs/QmaS4bBsTeDxfQQMpfgy2QghAMsSqeH6ba8cQvZiA3Lgox",
         "price":"0.03ETH",
         "currentlySelling":"True",
-        "address":"",
+        "address":"0xf5C2232A42B89Ff64cCE52BB6f5A0a2beB3F73f0",
     },
     {
         "name": "NFT#3",
@@ -31,7 +31,7 @@ const sampleData = [
         "image":"https://gateway.pinata.cloud/ipfs/QmaS4bBsTeDxfQQMpfgy2QghAMsSqeH6ba8cQvZiA3Lgox",
         "price":"0.03ETH",
         "currentlySelling":"True",
-        "address":"",
+        "address":"0xf5C2232A42B89Ff64cCE52BB6f5A0a2beB3F73f0",
     },
 ];
 const [data, updateData] = useState(sampleData);
