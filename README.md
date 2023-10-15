@@ -1,6 +1,6 @@
 # App_Avengers
 
-An NFT-MarketPlace where people and list and sell their NFT’s, they can write a description for the nft and set it’s price. The uploaded NFT is stored on blockchain using Pinata_Cloud which is a decentralized storage platform that IPFS to store and distribute data in a decentralized and secure way.
+An NFT MarketPlace where people and list and sell their NFT’s, they can write a description for the nft and set it’s price. The uploaded NFT is stored on blockchain using Pinata_Cloud which is a decentralized storage platform that IPFS to store and distribute data in a decentralized and secure way.
 
 ### Technologies
 - `Solidity` used for writing smart contracts
@@ -35,7 +35,7 @@ npm start
 
 https://github.com/AnmolSirola/App_Avengers/assets/95535448/585226c9-f847-42f5-ae5c-5e23301ed5a7
 
-### It took a while to store the nft into IPFS. End Result
+### It took a while to store the nft into IPFS and reflect changes. Here is the *End Result*:
 
 
 
