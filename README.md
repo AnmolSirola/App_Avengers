@@ -1,5 +1,14 @@
 # App_Avengers
 
+### Technologies
+- `Solidity` used for writing smart contracts
+-` JavaScript` - used in backend
+- `Hardhat` - used for contract integration
+- `React` - used as a frontend framework
+- `Tailwind` - used for styling frontend
+- `pinata` - used for storing data in a decentralized way using IPFS
+- `ChatGPT` - used for testing and debugging code
+
 ### Fork and Clone the Repo 
 First, you need to fork the `App_Avengers` repo. You can do this by clicking the `Fork` button on the top right corner of the repo.
 
@@ -18,3 +27,17 @@ npm install
 ```bash
 npm start
 ```
+
+### Project Overview
+
+
+https://github.com/AnmolSirola/App_Avengers/assets/95535448/585226c9-f847-42f5-ae5c-5e23301ed5a7
+
+### It took a while to store the nft into IPFS. End Result
+
+
+
+https://github.com/AnmolSirola/App_Avengers/assets/95535448/719e159f-d92f-4ab7-992e-d171d7d6692c
+
+
+
