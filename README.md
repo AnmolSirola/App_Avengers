@@ -4,12 +4,12 @@ An NFT MarketPlace where people and list and sell their NFT’s, they can write 
 
 ### Technologies
 - `Solidity` used for writing smart contracts
--` JavaScript` - used in backend
-- `Hardhat` - used for contract integration
-- `React` - used as a frontend framework
-- `Tailwind` - used for styling frontend
-- `pinata` - used for storing data in a decentralized way using IPFS
-- `ChatGPT` - used for testing and debugging code
+- `JavaScript`  used in backend
+- `Hardhat`  used for contract integration
+- `React`  used as a frontend framework
+- `Tailwind`  used for styling frontend
+- `pinata`  used for storing data in a decentralized way using IPFS
+- `ChatGPT` used for testing and debugging code
 
 ### Fork and Clone the Repo 
 First, you need to fork the `App_Avengers` repo. You can do this by clicking the `Fork` button on the top right corner of the repo.
