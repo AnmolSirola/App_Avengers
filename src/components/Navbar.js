@@ -1,5 +1,5 @@
-import logo from '../logo_3.png';
-import fullLogo from '../full_logo.png';
+import logo from '../logo_3.png';  // Import the logo image
+import fullLogo from '../full_logo.png';  // Import the full logo image
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,78 +7,79 @@ import {
   Link,
   useRouteMatch,
   useParams
-} from "react-router-dom";
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
+} from "react-router-dom";  // Import necessary components from react-router-dom
+import { useEffect, useState } from 'react';  // Import useEffect and useState from React
+import { useLocation } from 'react-router';  // Import useLocation from react-router
 
 function Navbar() {
 
-const [connected, toggleConnect] = useState(false);
-const location = useLocation();
-const [currAddress, updateAddress] = useState('0x');
+  const [connected, toggleConnect] = useState(false);  // State to track connection status
+  const location = useLocation();  // Get the current location from react-router
+  const [currAddress, updateAddress] = useState('0x');  // State to store the current Ethereum address
 
-async function getAddress() {
-  const ethers = require("ethers");
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const addr = await signer.getAddress();
-  updateAddress(addr);
-}
+  // Function to get the Ethereum address when connected
+  async function getAddress() {
+    const ethers = require("ethers");  // Import ethers library
+    const provider = new ethers.providers.Web3Provider(window.ethereum);  // Create a Web3Provider
+    const signer = provider.getSigner();  // Get the signer
+    const addr = await signer.getAddress();  // Get the Ethereum address
+    updateAddress(addr);  // Update the address state
+  }
 
-function updateButton() {
-  const ethereumButton = document.querySelector('.enableEthereumButton');
-  ethereumButton.textContent = "Connected";
-  ethereumButton.classList.remove("hover:bg-blue-70");
-  ethereumButton.classList.remove("bg-blue-500");
-  ethereumButton.classList.add("hover:bg-green-70");
-  ethereumButton.classList.add("bg-green-500");
-}
+  // Function to update the "Connect Wallet" button to "Connected"
+  function updateButton() {
+    const ethereumButton = document.querySelector('.enableEthereumButton');
+    ethereumButton.textContent = "Connected";
+    ethereumButton.classList.remove("hover:bg-blue-70");
+    ethereumButton.classList.remove("bg-blue-500");
+    ethereumButton.classList.add("hover:bg-green-70");
+    ethereumButton.classList.add("bg-green-500");
+  }
 
-async function connectWebsite() {
-
-    const chainId = await window.ethereum.request({ method: 'eth_chainId' });
-    if(chainId !== '0x5')
-    {
-      //alert('Incorrect network! Switch your metamask network to Rinkeby');
+  // Function to connect to the website and Ethereum
+  async function connectWebsite() {
+    const chainId = await window.ethereum.request({ method: 'eth_chainId' });  // Get the Ethereum chain ID
+    if (chainId !== '0x5') {
       await window.ethereum.request({
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: '0x5' }],
-     })
-    }  
+      });  // Switch the Ethereum network to Rinkeby
+    }
     await window.ethereum.request({ method: 'eth_requestAccounts' })
       .then(() => {
-        updateButton();
+        updateButton();  // Update the button to "Connected"
         console.log("here");
-        getAddress();
-        window.location.replace(location.pathname)
+        getAddress();  // Get the Ethereum address
+        window.location.replace(location.pathname);  // Reload the page
       });
-}
+  }
 
+  // Use the useEffect hook for component lifecycle and Ethereum account changes
   useEffect(() => {
-    let val = window.ethereum.isConnected();
-    if(val)
-    {
+    let val = window.ethereum.isConnected();  // Check if the user is already connected
+    if (val) {
       console.log("here");
-      getAddress();
-      toggleConnect(val);
-      updateButton();
+      getAddress();  // Get the Ethereum address
+      toggleConnect(val);  // Update the connection state
+      updateButton();  // Update the button to "Connected"
     }
 
+    // Listen for Ethereum account changes
     window.ethereum.on('accountsChanged', function(accounts){
-      window.location.replace(location.pathname)
-    })
+      window.location.replace(location.pathname);  // Reload the page when the account changes
+    });
   });
 
-    return (
-      <div className="">
-        <nav className="w-screen">
-          <ul className='flex items-end justify-between py-3 bg-transparent text-white pr-5'>
+  return (
+    <div className="">
+      <nav className="w-screen">
+        <ul className='flex items-end justify-between py-3 bg-transparent text-white pr-5'>
           <li className='flex items-end ml-5 pb-2'>
             <Link to="/">
-            <img src={fullLogo} alt="" width={120} height={120} className="inline-block -mt-2"/>
-            <div className='inline-block font-bold text-xl ml-2'>
-              App Avengers
-            </div>
+              <img src={fullLogo} alt="" width={120} height={120} className="inline-block -mt-2"/>
+              <div className='inline-block font-bold text-xl ml-2'>
+                App Avengers
+              </div>
             </Link>
           </li>
           <li className='w-2/6'>
@@ -115,13 +116,13 @@ async function connectWebsite() {
               </li>
             </ul>
           </li>
-          </ul>
-        </nav>
-        <div className='text-white text-bold text-right mr-10 text-sm'>
-          {currAddress !== "0x" ? "Connected to":"Not Connected. Please login to view NFTs"} {currAddress !== "0x" ? (currAddress.substring(0,15)+'...'):""}
-        </div>
+        </ul>
+      </nav>
+      <div className='text-white text-bold text-right mr-10 text-sm'>
+        {currAddress !== "0x" ? "Connected to":"Not Connected. Please login to view NFTs"} {currAddress !== "0x" ? (currAddress.substring(0,15)+'...'):""}
       </div>
-    );
-  }
+    </div>
+  );
+}
 
-  export default Navbar;
+export default Navbar;
